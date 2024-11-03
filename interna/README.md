@@ -1,13 +1,54 @@
-Checkpoint 6 - Front end
-1TDSPG
-Membros do grupo:
-Julia Brito Ricardo - rm558831
-Gustavo Lima Reis - rm555672
-Bruno Da Silva Souza - rm94346
-Leonardo Iafrate - rm556857
+# FRONT-END-DESIGN-ENGINEERING
 
+Bem-vindo ao repositório **FRONT-END-DESIGN-ENGINEERING**, criado por [gustavoreislima13](https://github.com/gustavoreislima13). Este projeto visa fornecer recursos e diretrizes para auxiliar desenvolvedores front-end na construção de interfaces de usuário eficientes e bem projetadas.
 
+## Conteúdo do Repositório
 
--Projeto de portifólio de alunos, desenvolvido ultilizando Next.js com TyperScript
-Link do projeto deployado na Vercel: 
-Link do Repositório: https://github.com/britojulia/cp6-front
+- **Diretrizes de Design:** Princípios e melhores práticas para criar interfaces de usuário intuitivas e esteticamente agradáveis.
+- **Padrões de Código:** Recomendações para manter um código limpo, modular e sustentável.
+- **Componentes Reutilizáveis:** Biblioteca de componentes que podem ser reutilizados em diferentes projetos, promovendo consistência e eficiência.
+- **Ferramentas e Tecnologias:** Sugestões de ferramentas e frameworks que auxiliam no desenvolvimento front-end, como [Bootstrap](https://getbootstrap.com/) e [Foundation](https://get.foundation/).
+- **Exemplos Práticos:** Implementações de casos de uso comuns para ilustrar a aplicação das diretrizes e padrões propostos.
+
+## Como Utilizar
+
+1. **Clonagem do Repositório:** Clone o repositório para o seu ambiente local utilizando o comando:
+
+   ```bash
+   git clone https://github.com/gustavoreislima13/FRONT-END-DESIGN-ENGINEERING.git
+   ```
+
+2. **Exploração dos Recursos:** Navegue pelas pastas e arquivos para se familiarizar com as diretrizes e componentes disponíveis.
+
+3. **Implementação em Projetos:** Incorpore as práticas e componentes sugeridos em seus projetos para melhorar a qualidade e a eficiência do desenvolvimento front-end.
+
+## Contribuições
+
+Contribuições são bem-vindas! Se você deseja adicionar novos recursos, corrigir bugs ou melhorar a documentação, siga estes passos:
+
+1. Faça um fork do repositório.
+2. Crie uma nova branch para a sua feature ou correção:
+
+   ```bash
+   git checkout -b minha-feature
+   ```
+
+3. Implemente suas alterações e faça commit:
+
+   ```bash
+   git commit -m "Descrição da minha feature"
+   ```
+
+4. Envie suas alterações para o seu fork:
+
+   ```bash
+   git push origin minha-feature
+   ```
+
+5. Abra um Pull Request no repositório original.
+
+## Licença
+
+Este projeto está licenciado sob a Licença MIT. Consulte o arquivo LICENSE para mais detalhes.
+
+Para mais informações e acesso ao repositório, visite: [FRONT-END-DESIGN-ENGINEERING](https://github.com/gustavoreislima13/FRONT-END-DESIGN-ENGINEERING). 
