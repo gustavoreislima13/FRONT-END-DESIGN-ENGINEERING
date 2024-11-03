@@ -1,54 +1,45 @@
-# FRONT-END-DESIGN-ENGINEERING
+FRONT-END-DESIGN-ENGINEERING
+Bem-vindo ao repositório FRONT-END-DESIGN-ENGINEERING, criado por gustavoreislima13. Este projeto visa fornecer recursos e diretrizes para auxiliar desenvolvedores front-end na construção de interfaces de usuário eficientes e bem projetadas.
 
-Bem-vindo ao repositório **FRONT-END-DESIGN-ENGINEERING**, criado por [gustavoreislima13](https://github.com/gustavoreislima13). Este projeto visa fornecer recursos e diretrizes para auxiliar desenvolvedores front-end na construção de interfaces de usuário eficientes e bem projetadas.
+Conteúdo do Repositório
+Diretrizes de Design: Princípios e melhores práticas para criar interfaces de usuário intuitivas e esteticamente agradáveis.
+Padrões de Código: Recomendações para manter um código limpo, modular e sustentável.
+Componentes Reutilizáveis: Biblioteca de componentes que podem ser reutilizados em diferentes projetos, promovendo consistência e eficiência.
+Ferramentas e Tecnologias: Sugestões de ferramentas e frameworks que auxiliam no desenvolvimento front-end, como Bootstrap e Foundation.
+Exemplos Práticos: Implementações de casos de uso comuns para ilustrar a aplicação das diretrizes e padrões propostos.
+Como Utilizar
+Clonagem do Repositório: Clone o repositório para o seu ambiente local utilizando o comando:
 
-## Conteúdo do Repositório
+bash
+Copiar código
+git clone https://github.com/gustavoreislima13/FRONT-END-DESIGN-ENGINEERING.git
+Exploração dos Recursos: Navegue pelas pastas e arquivos para se familiarizar com as diretrizes e componentes disponíveis.
 
-- **Diretrizes de Design:** Princípios e melhores práticas para criar interfaces de usuário intuitivas e esteticamente agradáveis.
-- **Padrões de Código:** Recomendações para manter um código limpo, modular e sustentável.
-- **Componentes Reutilizáveis:** Biblioteca de componentes que podem ser reutilizados em diferentes projetos, promovendo consistência e eficiência.
-- **Ferramentas e Tecnologias:** Sugestões de ferramentas e frameworks que auxiliam no desenvolvimento front-end, como [Bootstrap](https://getbootstrap.com/) e [Foundation](https://get.foundation/).
-- **Exemplos Práticos:** Implementações de casos de uso comuns para ilustrar a aplicação das diretrizes e padrões propostos.
+Implementação em Projetos: Incorpore as práticas e componentes sugeridos em seus projetos para melhorar a qualidade e a eficiência do desenvolvimento front-end.
 
-## Como Utilizar
+Contribuições
+Contribuições são bem-vindas! Se você deseja adicionar novos recursos, corrigir bugs ou melhorar a documentação, siga estes passos:
 
-1. **Clonagem do Repositório:** Clone o repositório para o seu ambiente local utilizando o comando:
+Faça um fork do repositório.
 
-   ```bash
-   git clone https://github.com/gustavoreislima13/FRONT-END-DESIGN-ENGINEERING.git
-   ```
+Crie uma nova branch para a sua feature ou correção:
 
-2. **Exploração dos Recursos:** Navegue pelas pastas e arquivos para se familiarizar com as diretrizes e componentes disponíveis.
+bash
+Copiar código
+git checkout -b minha-feature
+Implemente suas alterações e faça commit:
 
-3. **Implementação em Projetos:** Incorpore as práticas e componentes sugeridos em seus projetos para melhorar a qualidade e a eficiência do desenvolvimento front-end.
+bash
+Copiar código
+git commit -m "Descrição da minha feature"
+Envie suas alterações para o seu fork:
 
-## Contribuições
+bash
+Copiar código
+git push origin minha-feature
+Abra um Pull Request no repositório original.
 
-Contribuições são bem-vindas! Se você deseja adicionar novos recursos, corrigir bugs ou melhorar a documentação, siga estes passos:
+Licença
+Este projeto está licenciado sob a Licença MIT. Consulte o arquivo LICENSE para mais detalhes.
 
-1. Faça um fork do repositório.
-2. Crie uma nova branch para a sua feature ou correção:
-
-   ```bash
-   git checkout -b minha-feature
-   ```
-
-3. Implemente suas alterações e faça commit:
-
-   ```bash
-   git commit -m "Descrição da minha feature"
-   ```
-
-4. Envie suas alterações para o seu fork:
-
-   ```bash
-   git push origin minha-feature
-   ```
-
-5. Abra um Pull Request no repositório original.
-
-## Licença
-
-Este projeto está licenciado sob a Licença MIT. Consulte o arquivo LICENSE para mais detalhes.
-
-Para mais informações e acesso ao repositório, visite: [FRONT-END-DESIGN-ENGINEERING](https://github.com/gustavoreislima13/FRONT-END-DESIGN-ENGINEERING). 
+Para mais informações e acesso ao repositório, visite: FRONT-END-DESIGN-ENGINEERING.
