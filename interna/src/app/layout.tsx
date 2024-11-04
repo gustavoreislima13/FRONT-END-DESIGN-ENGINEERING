@@ -5,8 +5,8 @@ import Rodape from "./components/Rodape/rodape";
 import Cadastro from "./cadastro/cad-cadastro/page";
 
 export const metadata: Metadata = {
-  title: "Portifolio",
-  description: "dashboard de alunos",
+  title: "Porto",
+  description: "dashboard de clientes",
 };
 
 export default function RootLayout({
