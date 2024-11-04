@@ -18,14 +18,14 @@ export default function Cabecalho(): JSX.Element {
             </Link>
           </li>
           <li>
-            <Link href="/checkpoint" className="bg-transparent text-white px-4 py-2 rounded-full hover:bg-gray-700 transition">
+            <Link href="/servico" className="bg-transparent text-white px-4 py-2 rounded-full hover:bg-gray-700 transition">
             Serviços
             </Link>
           </li>
           
           <li>
-            <Link href="/challange" className="bg-transparent text-white px-4 py-2 rounded-full hover:bg-gray-700 transition">
-              Login
+            <Link href="/dashboard" className="bg-transparent text-white px-4 py-2 rounded-full hover:bg-gray-700 transition">
+            Dashboard
             </Link>
           </li>
         </ul>

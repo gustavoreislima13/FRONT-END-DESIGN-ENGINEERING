@@ -2,11 +2,10 @@
 
 import { TipoVeiculo } from "@/types/types";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function CadVeiculo() {
     const navigate = useRouter();
-
     const [veiculo, setVeiculo] = useState<TipoVeiculo>({
         placa: "",
         modelo: "",
@@ -14,6 +13,13 @@ export default function CadVeiculo() {
         marca: "",
         clientes_cpf: "",
     });
+
+    // useEffect para garantir que apenas no lado do cliente a navegação seja manipulada
+    useEffect(() => {
+        if (typeof window === "undefined") {
+            return;
+        }
+    }, []);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
@@ -32,7 +38,7 @@ export default function CadVeiculo() {
             });
 
             if (response.ok) {
-                alert("Checkpoint cadastrado com sucesso.");
+                alert("Veículo cadastrado com sucesso.");
                 setVeiculo({
                     placa: "",
                     modelo: "",
@@ -43,13 +49,13 @@ export default function CadVeiculo() {
                 navigate.push('/checkpoint');
             }
         } catch (error) {
-            console.error("Falha ao cadastrar veiculo: ", error);
+            console.error("Falha ao cadastrar veículo: ", error);
         }
     };
 
     return (
         <div className="min-h-screen bg-gray-900 text-white flex flex-col items-center py-10 px-4">
-            <h1 className="text-3xl font-bold text-pink-400 mb-6">Cadastrar veiculos</h1>
+            <h1 className="text-3xl font-bold text-pink-400 mb-6">Cadastrar veículos</h1>
             <div className="bg-gray-800 p-6 rounded-lg shadow-lg w-full max-w-lg">
                 <form onSubmit={handleSubmit} className="space-y-4">
                     <div>
@@ -59,7 +65,7 @@ export default function CadVeiculo() {
                             name="placa"
                             value={veiculo.placa}
                             onChange={(evento) => handleChange(evento)}
-                            placeholder="Digite a placa do veiculo"
+                            placeholder="Digite a placa do veículo"
                             required
                             className="w-full px-4 py-2 rounded-md bg-gray-700 text-white placeholder-gray-400"
                         />
@@ -71,7 +77,7 @@ export default function CadVeiculo() {
                             name="modelo"
                             value={veiculo.modelo}
                             onChange={(evento) => handleChange(evento)}
-                            placeholder="Digite o modelo do veiculo"
+                            placeholder="Digite o modelo do veículo"
                             required
                             className="w-full px-4 py-2 rounded-md bg-gray-700 text-white placeholder-gray-400"
                         />
@@ -83,7 +89,7 @@ export default function CadVeiculo() {
                             name="cor"
                             value={veiculo.cor}
                             onChange={(evento) => handleChange(evento)}
-                            placeholder="Digite a cor do veiculo"
+                            placeholder="Digite a cor do veículo"
                             className="w-full px-4 py-2 rounded-md bg-gray-700 text-white placeholder-gray-400"
                         />
                     </div>
@@ -99,13 +105,13 @@ export default function CadVeiculo() {
                         />
                     </div>
                     <div>
-                        <label className="block text-sm font-medium mb-1">cpf do cliente</label>
+                        <label className="block text-sm font-medium mb-1">CPF do cliente</label>
                         <input
                             type="text"
                             name="clientes_cpf"
                             value={veiculo.clientes_cpf}
                             onChange={(evento) => handleChange(evento)}
-                            placeholder="Digite o cpf do cliente"
+                            placeholder="Digite o CPF do cliente"
                             className="w-full px-4 py-2 rounded-md bg-gray-700 text-white placeholder-gray-400"
                         />
                     </div>
