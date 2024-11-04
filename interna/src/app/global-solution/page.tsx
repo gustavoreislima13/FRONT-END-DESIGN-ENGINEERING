@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { FC, useState, useEffect } from 'react';
-import { GlobalSolution } from '@/types/global';
+
 import { GrEdit as Editar } from 'react-icons/gr';
 import { RiDeleteBin2Line as Excluir } from 'react-icons/ri';
 

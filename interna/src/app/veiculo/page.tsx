@@ -7,7 +7,7 @@ import { GrEdit as Editar } from "react-icons/gr";
 import { RiDeleteBin2Line as Excluir } from "react-icons/ri";
 
 
-export default function CadastroVeiculo() {
+export default function Veiculo() {
 
     const [veiculos, setVeiculos] = useState<TipoVeiculo[]>([]);
 

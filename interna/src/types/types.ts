@@ -16,7 +16,10 @@ export type TipoVeiculo = {
 
 export type TipoAgendamento = {
     "id_agendamento": number;
-    "data_agenda": Date;
-    "tipo_servico": string,
-    
+    "data_agenda": string;
+    "tipo_servico": string;
+    "status": string;
+    "clientes_cpf":string;
+    "veiculos_placa":string;
 }
+
