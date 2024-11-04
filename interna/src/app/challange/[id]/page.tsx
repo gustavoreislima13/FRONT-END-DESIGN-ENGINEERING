@@ -5,7 +5,9 @@ import { useEffect, useState } from "react"
 
 
 export default function CadastroCliente() {
+
     const [cadastros, setCadastros] = useState<TipoCadastro[]>([]);
+
     useEffect(() => {
         const chamadaApiJava = async ()=>{
             const response = await fetch("http://localhost:8080/guardianshields/clientes");
@@ -25,7 +27,6 @@ return (
                     <th>nome</th>
                     <th>numero</th>
                     <th>email</th>
-
                     <th>Editar | Excluir</th>
                 </tr>
             </thead>
@@ -42,7 +43,7 @@ return (
             <tfoot>
                 <tr>
                     <td colSpan={6}>
-                        Quantidade de remédios : {cadastros.length}
+                        Quantidade de cadastro : {cadastros.length}
                     </td>
                 </tr>
             </tfoot>
