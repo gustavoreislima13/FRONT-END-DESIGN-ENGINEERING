@@ -1,6 +1,6 @@
 "use client";
 
-import { TipoVeiculo } from "@/types/cadastro";
+import { TipoVeiculo } from "@/types/types";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 

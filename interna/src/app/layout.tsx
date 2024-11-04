@@ -2,7 +2,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import Cabecalho from "./components/Cabecalho/Cabecalho";
 import Rodape from "./components/Rodape/rodape";
-import CadastroCliente from "./challange/[id]/page";
+import Cadastro from "./cadastro/cad-cadastro/page";
 
 export const metadata: Metadata = {
   title: "Portifolio",
@@ -20,7 +20,7 @@ export default function RootLayout({
       >
         <Cabecalho/>
         {children}
-        <CadastroCliente/>
+        <Cadastro/>
         <Rodape/>
       </body>
     </html>

@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useRouter, useParams } from "next/navigation"; 
-import { TipoVeiculo } from "@/types/cadastro";
+import { TipoVeiculo } from "@/types/types";
 
 export default function EditarVeiculo() {
     const navigate = useRouter();

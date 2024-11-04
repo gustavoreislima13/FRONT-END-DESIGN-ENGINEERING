@@ -1,6 +1,6 @@
 "use client";
 
-import { TipoCadastro } from "@/types/cadastro";
+import { TipoCadastro } from "@/types/types";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 

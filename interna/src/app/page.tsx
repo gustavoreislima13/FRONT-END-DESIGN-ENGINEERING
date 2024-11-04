@@ -11,14 +11,7 @@ import imagem2 from '@/image/2.png';
 import imagem3 from '@/image/3.png';
 import Link from 'next/link';
 
-
-
-
-
-
-
-
-export default async function Tema1() {
+export default async function TelaInicial() {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen p-6 bg-black">
