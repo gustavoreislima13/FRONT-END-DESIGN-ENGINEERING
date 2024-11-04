@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import Image from 'next/image';
 import Link from 'next/link';
@@ -11,11 +11,6 @@ import { RiDeleteBin2Line as Excluir } from 'react-icons/ri';
 const API_URL = 'https://api-seu-backend.com'; // Substitua pela URL da sua API
 
 const Dashboard: FC = () => {
-  const [contacts, setContacts] = useState([
-    { name: 'João Silva', image: '/user-icon1.png', isEditing: false },
-    { name: 'Maria Souza', image: '/user-icon2.png', isEditing: false }
-  ]);
-
   const [chatMessages, setChatMessages] = useState([
     { sender: 'Você', message: 'Meu carro está fazendo um barulho estranho.' },
     { sender: 'IA', message: 'Pode descrever melhor o barulho? Parece um som metálico ou um rangido?' },
@@ -32,17 +27,6 @@ const Dashboard: FC = () => {
   const router = useRouter();
 
   useEffect(() => {
-    // Fetch initial data from API
-    const fetchData = async () => {
-      try {
-        const response = await fetch(`${API_URL}/contacts`);
-        const data = await response.json();
-        setContacts(data);
-      } catch (error) {
-        console.error('Erro ao buscar contatos:', error);
-      }
-    };
-
     const fetchGlobals = async () => {
       try {
         const response = await fetch('http://localhost:3000/api/base-global');
@@ -53,7 +37,6 @@ const Dashboard: FC = () => {
       }
     };
 
-    fetchData();
     fetchGlobals();
   }, []);
 
@@ -90,67 +73,6 @@ const Dashboard: FC = () => {
       }
 
       setNewMessage('');
-    }
-  };
-
-  const addContact = async () => {
-    const newContact = { name: 'Novo Contato', image: '/user-icon-default.png', isEditing: false };
-    const updatedContacts = [...contacts, newContact];
-    setContacts(updatedContacts);
-
-    // Adiciona o novo contato na API
-    try {
-      await fetch(`${API_URL}/contacts`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(newContact)
-      });
-    } catch (error) {
-      console.error('Erro ao adicionar contato:', error);
-    }
-  };
-
-  const removeContact = async (index: number) => {
-    const contactToRemove = contacts[index];
-    const updatedContacts = contacts.filter((_, i) => i !== index);
-    setContacts(updatedContacts);
-
-    // Remove o contato da API
-    try {
-      await fetch(`${API_URL}/contacts/${contactToRemove.name}`, {
-        method: 'DELETE'
-      });
-    } catch (error) {
-      console.error('Erro ao remover contato:', error);
-    }
-  };
-
-  const toggleEditContact = (index: number) => {
-    const updatedContacts = contacts.map((contact, i) =>
-      i === index ? { ...contact, isEditing: !contact.isEditing } : contact
-    );
-    setContacts(updatedContacts);
-  };
-
-  const handleEditContact = (index: number, newName: string) => {
-    const updatedContacts = contacts.map((contact, i) =>
-      i === index ? { ...contact, name: newName, isEditing: false } : contact
-    );
-    setContacts(updatedContacts);
-
-    // Atualiza o contato na API
-    try {
-      fetch(`${API_URL}/contacts/${contacts[index].name}`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ name: newName })
-      });
-    } catch (error) {
-      console.error('Erro ao editar contato:', error);
     }
   };
 
@@ -245,16 +167,16 @@ const Dashboard: FC = () => {
 
           {/* Seção da Lista de Pedidos (Adaptada para Global Solutions) */}
           <div className="bg-gray-800 p-4 rounded-xl shadow-lg mt-4">
-            <h2 className="text-lg font-bold mb-4 text-white">Lista de Global Solutions</h2>
+            <h2 className="text-lg font-bold mb-4 text-white">Veiculos</h2>
             <table className="min-w-full bg-gray-900 text-sm text-white rounded-lg overflow-hidden">
               <thead>
                 <tr>
                   <th className="py-2 px-4">ID</th>
-                  <th className="py-2 px-4">ALUNO</th>
-                  <th className="py-2 px-4">MATERIA</th>
-                  <th className="py-2 px-4">NOTA</th>
+                  <th className="py-2 px-4">Nome</th>
+                  <th className="py-2 px-4">Modelo</th>
+                  <th className="py-2 px-4">Placa</th>
                   <th className="py-2 px-4">DATA</th>
-                  <th className="py-2 px-4">FEEDBACK</th>
+                  <th className="py-2 px-4">Cor</th>
                   <th className="py-2 px-4">EDITAR | EXCLUIR</th>
                 </tr>
               </thead>
@@ -271,9 +193,9 @@ const Dashboard: FC = () => {
                       <Link href={`/global-solution/${p.id}`} className="text-pink-500 hover:text-pink-600 transition mr-2">
                         <Editar className="inline text-3xl" />
                       </Link>
-                      <Link href="#" onClick={() => handleDelete(p.id)} className="text-red-500 hover:text-red-600 transition">
+                      <button onClick={() => handleDelete(p.id)} className="text-red-500 hover:text-red-600 transition">
                         <Excluir className="inline text-3xl" />
-                      </Link>
+                      </button>
                     </td>
                   </tr>
                 ))}
@@ -287,81 +209,12 @@ const Dashboard: FC = () => {
               </tfoot>
             </table>
           </div>
-
-          {/* Seção de Contatos */}
-          <div className="bg-gray-800 p-4 rounded-xl shadow-lg mt-4">
-            <h2 className="text-lg font-bold mb-4 text-white">Lista de Contatos</h2>
-            <table className="min-w-full bg-gray-900 text-sm text-white rounded-lg overflow-hidden">
-              <thead>
-                <tr>
-                  <th className="py-2 px-4">Nome</th>
-                  <th className="py-2 px-4">Imagem</th>
-                  <th className="py-2 px-4">Ações</th>
-                </tr>
-              </thead>
-              <tbody>
-                {contacts.map((contact, index) => (
-                  <tr key={index} className="hover:bg-gray-800">
-                    <td className="py-2 px-4">
-                      {contact.isEditing ? (
-                        <input
-                          type="text"
-                          value={contact.name}
-                          onChange={(e) => handleEditContact(index, e.target.value)}
-                          className="bg-gray-700 text-white p-1 rounded-md"
-                        />
-                      ) : (
-                        contact.name
-                      )}
-                    </td>
-                    <td className="py-2 px-4">
-                      <Image src={contact.image} alt="" width={24} height={24} className="rounded-full" />
-                    </td>
-                    <td className="py-2 px-4 flex justify-center items-center">
-                      {contact.isEditing ? (
-                        <button onClick={() => toggleEditContact(index)} className="text-green-400 hover:text-green-500 transition ml-2">Salvar</button>
-                      ) : (
-                        <>
-                          <button onClick={() => toggleEditContact(index)} className="text-blue-400 hover:text-blue-500 transition ml-2">Editar</button>
-                          <button onClick={() => removeContact(index)} className="text-red-400 hover:text-red-500 transition ml-2">Excluir</button>
-                        </>
-                      )}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-            <button onClick={addContact} className="mt-4 w-full bg-blue-600 text-white py-2 px-4 rounded-md shadow-md">
-              Adicionar Contato
-            </button>
-          </div>
         </div>
 
-        {/* Seção de Notificações, Atividades e Contatos */}
+        {/* Seção de Atividades e Contatos */}
         <div className="lg:col-span-1 grid grid-cols-1 gap-4 mt-6">
           <div className="bg-gray-800 p-4 rounded-xl shadow-lg">
-            <h2 className="text-base font-bold mb-2 text-white">Notificações</h2>
-            <ul className="space-y-2">
-              <li className="flex items-center text-sm text-white">
-                <span>Novo usuário registrado.</span>
-                <span className="text-gray-400 ml-auto">59 minutos atrás</span>
-              </li>
-              <li className="flex items-center text-sm text-white">
-                <span>Você corrigiu um bug.</span>
-                <span className="text-gray-400 ml-auto">Agora mesmo</span>
-              </li>
-              <li className="flex items-center text-sm text-white">
-                <span>Você corrigiu um bug.</span>
-                <span className="text-gray-400 ml-auto">12 horas atrás</span>
-              </li>
-              <li className="flex items-center text-sm text-white">
-                <span>Andi Lane se inscreveu.</span>
-                <span className="text-gray-400 ml-auto">Hoje, 11:59 AM</span>
-              </li>
-            </ul>
-          </div>
-          <div className="bg-gray-800 p-4 rounded-xl shadow-lg">
-            <h2 className="text-base font-bold mb-2 text-white">Atividades Recentes</h2>
+            <h2 className="text-base font-bold mb-2 text-white">Localização</h2>
             <div className="h-60 rounded-md overflow-hidden mb-4">
               {/* Mapa inserido aqui */}
               <iframe

@@ -21,7 +21,7 @@ export default function EditarGlobalSolution() {
 
     useEffect(() => {
         const chamadaApi = async () => {
-            const response = await fetch(`http://localhost:3000/api/base-global/${id}`);
+            const response = await fetch(`http://localhost:8080/guardianshields/clientes/${id}`);
             const data = await response.json();
             setGlobal(data);
         };
@@ -34,7 +34,7 @@ export default function EditarGlobalSolution() {
         e.preventDefault();
 
         try {
-            const response = await fetch(`http://localhost:3000/api/base-global/${id}`, {
+            const response = await fetch(`http://localhost:8080/guardianshields/clientes/${id}`, {
                 method: 'PUT',
                 headers: {
                     "Content-Type": "application/json"
@@ -62,11 +62,11 @@ export default function EditarGlobalSolution() {
 
     return (
         <div className="min-h-screen bg-gray-900 text-white flex flex-col items-center py-10 px-4">
-            <h1 className="text-3xl md:text-4xl font-bold text-pink-400 mb-6">Editar Global Solution</h1>
+            <h1 className="text-3xl md:text-4xl font-bold text-pink-400 mb-6">Editar Veiculo</h1>
             <div className="bg-gray-800 p-6 rounded-lg shadow-lg w-full max-w-lg">
                 <form onSubmit={handleSubmit} className="space-y-4">
                     <div>
-                        <label className="block text-sm font-medium mb-1">NOME DO ALUNO</label>
+                        <label className="block text-sm font-medium mb-1">Nome</label>
                         <input
                             type="text"
                             name="aluno"
@@ -78,7 +78,7 @@ export default function EditarGlobalSolution() {
                         />
                     </div>
                     <div>
-                        <label className="block text-sm font-medium mb-1">NOME DA AVALIAÇÃO</label>
+                        <label className="block text-sm font-medium mb-1">Modelo</label>
                         <input
                             type="text"
                             name="materia"
@@ -90,7 +90,7 @@ export default function EditarGlobalSolution() {
                         />
                     </div>
                     <div>
-                        <label className="block text-sm font-medium mb-1">NOTA</label>
+                        <label className="block text-sm font-medium mb-1">Placa</label>
                         <input
                             type="number"
                             name="nota"
@@ -101,7 +101,7 @@ export default function EditarGlobalSolution() {
                         />
                     </div>
                     <div>
-                        <label className="block text-sm font-medium mb-1">DATA</label>
+                        <label className="block text-sm font-medium mb-1">Data</label>
                         <input
                             type="date"
                             name="data"
@@ -112,7 +112,7 @@ export default function EditarGlobalSolution() {
                         />
                     </div>
                     <div>
-                        <label className="block text-sm font-medium mb-1">FEEDBACK</label>
+                        <label className="block text-sm font-medium mb-1">Cor</label>
                         <input
                             type="text"
                             name="feedback"

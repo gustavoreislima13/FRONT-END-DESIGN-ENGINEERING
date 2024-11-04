@@ -14,7 +14,7 @@ export async function GET() {
         return NextResponse.json(globals);
 
     } catch (error) {
-        return NextResponse.json({ error: "Falha na obtenção da lista de global solutions : " + error }, { status: 500 });
+        return NextResponse.json({ error: "Falha na obtenção da lista : " + error }, { status: 500 });
     }
 
 }
@@ -44,7 +44,7 @@ export async function POST(request: Request) {
         return NextResponse.json(checkpoint, { status: 201 });
 
     } catch (error) {
-        return  NextResponse.json({ error: "Falha na inserção da Global Solution: " + error }, { status: 500 });
+        return  NextResponse.json({ error: "Falha na inserção  " + error }, { status: 500 });
     }
 
 }

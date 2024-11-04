@@ -51,15 +51,15 @@ export default function CadGlobalSolution() {
 
     return (
         <div className="min-h-screen bg-gray-900 text-white flex flex-col items-center py-10 px-4">
-            <h1 className="text-3xl font-bold text-pink-400 mb-6">Global Solutions</h1>
+            <h1 className="text-3xl font-bold text-pink-400 mb-6"></h1>
             <div className="bg-gray-800 p-6 rounded-lg shadow-lg w-full max-w-md md:max-w-lg">
                 <h2 className="text-2xl font-semibold text-pink-400 mb-4">Adicionar GS</h2>
                 <form onSubmit={handleSubmit} className="space-y-4">
                     <div>
-                        <label className="block text-sm font-medium mb-1">Nome do Aluno</label>
+                        <label className="block text-sm font-medium mb-1">Nome </label>
                         <input
                             type="text"
-                            name="aluno"
+                            name="Nome"
                             value={global.aluno}
                             onChange={handleChange}
                             placeholder="Digite o nome do aluno"
@@ -68,7 +68,7 @@ export default function CadGlobalSolution() {
                         />
                     </div>
                     <div>
-                        <label className="block text-sm font-medium mb-1">Nome da Avaliação</label>
+                        <label className="block text-sm font-medium mb-1"> Avaliação</label>
                         <input
                             type="text"
                             name="materia"
@@ -102,7 +102,7 @@ export default function CadGlobalSolution() {
                         />
                     </div>
                     <div>
-                        <label className="block text-sm font-medium mb-1">Feedback</label>
+                        <label className="block text-sm font-medium mb-1">Fee</label>
                         <input
                             type="text"
                             name="feedback"
