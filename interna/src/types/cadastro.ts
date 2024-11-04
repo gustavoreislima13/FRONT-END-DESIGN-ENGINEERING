@@ -1,8 +1,12 @@
-export type cadastro =	{
-    "cpf": number;
-    "email": string;
+export type TipoCadastro =	{
+    "cpf": string;
     "nome": string;
-    "senha": string;
     "telefone": number;
+    "email": string;
+    "senha": string;
 }
 
+export type Challenge ={
+    "email": string;
+    "senha": string;
+}

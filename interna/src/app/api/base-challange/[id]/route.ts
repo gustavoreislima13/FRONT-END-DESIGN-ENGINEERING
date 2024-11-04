@@ -1,81 +1,81 @@
 import { NextResponse } from "next/server";
 import { promises as fs } from "fs";
-import { Challenge } from "@/types/challenge";
+import { TipoCadastro } from "@/types/cadastro";
 
 //READ
-export async function GET(request:Request, {params}:{params:{id:number}}) {
+export async function GET(request:Request, {params}:{params:{cpf:string}}) {
 
     try {
-        const file = await fs.readFile( process.cwd() + '/src/data/banco-ch.json', 'utf-8');
+        const file = await fs.readFile( process.cwd() + '/src/data/banco.json', 'utf-8');
         
-        const challenges:Challenge[] = JSON.parse(file);
+        const cadastros:TipoCadastro[] = JSON.parse(file);
 
-        const challenge = challenges.find( p => p.id ==  params.id);
+        const cadastro = cadastros.find( p => p.cpf ==  params.cpf);
 
-        return NextResponse.json(challenge);
+        return NextResponse.json(cadastro);
 
     } catch (error) {
-        return  NextResponse.json({msg:"Falha na obtenção do challenge : "+error},{status:500});
+        return  NextResponse.json({msg:"Falha na obtenção do cadastro : "+error},{status:500});
     }
 
 }
 
 //DELETE
-export async function DELETE(request:Request, {params}:{params:{id:number}}) {
+export async function DELETE(request:Request, {params}:{params:{cpf:string}}) {
 
     try {
-        const file = await fs.readFile( process.cwd() + '/src/data/banco-ch.json', 'utf-8');
+        const file = await fs.readFile( process.cwd() + '/src/data/banco.json', 'utf-8');
         
-        const challenges:Challenge[] = JSON.parse(file);
+        const cadastros:TipoCadastro[] = JSON.parse(file);
 
-        const indice = challenges.findIndex( p => p.id ==  params.id);
+        const indice = cadastros.findIndex( p => p.cpf ==  params.cpf);
 
         if(indice != -1){
-            challenges.splice(indice,1);
+            cadastros.splice(indice,1);
             
-            const listaJson = JSON.stringify(challenges);
+            const listaJson = JSON.stringify(cadastros);
 
-            await fs.writeFile(process.cwd() + '/src/data/banco-ch.json', listaJson);
+            await fs.writeFile(process.cwd() + '/src/data/banco.json', listaJson);
 
-            return NextResponse.json({msg:"Challenge excluído com sucesso!"});
+            return NextResponse.json({msg:"Cadastro excluído com sucesso!"});
         }
 
     } catch (error) {
-        return NextResponse.json({msg:"Falha na exclusão do Challenge : "+error},{status:500})
+        return NextResponse.json({msg:"Falha na exclusão do Cadastro : "+error},{status:500})
     }
 
 }
 
 
 //UPDATE
-export async function PUT(request: Request,{params}:{params:{id:number}}) {
+export async function PUT(request: Request,{params}:{params:{cpf:string}}) {
 
     try {
 
-        const file = await fs.readFile(process.cwd() + '/src/data/banco-ch.json', 'utf-8');
+        const file = await fs.readFile(process.cwd() + '/src/data/banco.json', 'utf-8');
 
-        const challenges: Challenge[] = JSON.parse(file);
+        const cadastros: TipoCadastro[] = JSON.parse(file);
 
-        const {aluno,materia,nota,data,feedback} = await request.json();
+        const {cpf, nome, telefone, email, senha} = await request.json();
 
-        const indice = challenges.findIndex( p => p.id ==  params.id);
+        const indice = cadastros.findIndex( p => p.cpf ==  params.cpf);
 
         if(indice != -1){
-            const challenge = {aluno,materia,nota,data,feedback} as Challenge;
+            const cadastro = {cpf, nome, telefone, email, senha} as TipoCadastro;
 
-            challenge.id = params.id;
+            cadastro.cpf = params.cpf;
 
-            challenges.splice(indice,1,challenge);
+            cadastros.splice(indice,1,cadastro);
                         
-            const listaJson = JSON.stringify(challenges);
+            const listaJson = JSON.stringify(cadastros);
 
-            await fs.writeFile(process.cwd() + '/src/data/banco-ch.json', listaJson);
+            await fs.writeFile(process.cwd() + '/src/data/banco.json', listaJson);
 
-            return NextResponse.json({msg:"Challenge atualizado com sucesso!"});
+            return NextResponse.json({msg:"Cadastro atualizado com sucesso!"});
         }
 
     } catch (error) {
-        return  NextResponse.json({ error: "Falha na atualização do challenge : " + error }, { status: 500 });
+        return  NextResponse.json({ error: "Falha na atualização do cadastro : " + error }, { status: 500 });
     }
 
 }

@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import dynamic from 'next/dynamic';
 import validado from '@/image/validado.png';
 import vantagem from '@/image/ilustracao.png';
 import primeira from '@/image/0.jpg';
@@ -10,6 +9,7 @@ import jose from '@/image/jose.png';
 import imagem1 from '@/image/1.png';
 import imagem2 from '@/image/2.png';
 import imagem3 from '@/image/3.png';
+import Link from 'next/link';
 
 
 
@@ -19,7 +19,6 @@ import imagem3 from '@/image/3.png';
 
 
 export default async function Tema1() {
-  const response = await fetch(`http://localhost:3000/api`);
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen p-6 bg-black">
@@ -31,9 +30,14 @@ export default async function Tema1() {
           <p className="text-lg text-gray-300">
             Atendimento inovador com IA. Soluções ágeis e personalizadas aprendendo continuamente para oferecer o melhor serviço!
           </p>
-          <button className="mt-6 px-6 py-3 bg-blue-600 text-white font-semibold rounded-md shadow-md hover:bg-blue-500 transition duration-200">
-            Saiba mais
-          </button>
+            <nav>
+              <ul>
+                <li>
+                  <Link href={"/challange"}>Cadastre-se</Link>
+                </li>
+              </ul>
+
+            </nav>
         </div>
         <div className="flex-1 p-4">
           <Image
