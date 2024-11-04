@@ -11,18 +11,27 @@ import { RiDeleteBin2Line as Excluir } from 'react-icons/ri';
 const API_URL = 'https://api-seu-backend.com'; // Substitua pela URL da sua API
 
 const Dashboard: FC = () => {
+  const handleSolicitationSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    alert('Solicitação enviada para a oficina mais próxima!');
+    e.currentTarget.reset();
+    const form = e.target as HTMLFormElement;
+    form.reset();
+    ;
+  };
   const [chatMessages, setChatMessages] = useState([
     { sender: 'Você', message: 'Meu carro está fazendo um barulho estranho.' },
     { sender: 'IA', message: 'Pode descrever melhor o barulho? Parece um som metálico ou um rangido?' },
     { sender: 'Você', message: 'Parece um som metálico, especialmente quando eu acelero.' },
     { sender: 'IA', message: 'Isso pode ser causado por um problema na correia do alternador ou no sistema de exaustão. Recomendo verificar essas partes.' }
+    
   ]);
 
   const [globals, setGlobals] = useState<GlobalSolution[]>([]);
   const [newMessage, setNewMessage] = useState('');
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const [selectedDate, setSelectedDate] = useState(new Date());
-  const [appointmentDetails, setAppointmentDetails] = useState({ location: '', description: '' });
+  const [selectedDate, setSelectedDate] = useState<number | null>(null);
+  const [appointmentDetails, setAppointmentDetails] = useState({ date: '', description: '' });
 
   const router = useRouter();
 
@@ -76,10 +85,17 @@ const Dashboard: FC = () => {
     }
   };
 
+  const handleDateClick = (day: number) => {
+    setSelectedDate(day);
+    setAppointmentDetails({ ...appointmentDetails, date: `2024-09-${day}` });
+  };
+
   const handleAppointmentSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Lógica para enviar detalhes do agendamento para a API
-    console.log('Agendamento enviado:', { selectedDate, ...appointmentDetails });
+    console.log('Agendamento enviado:', appointmentDetails);
+    alert('Agendamento realizado com sucesso!');
+    setAppointmentDetails({ date: '', description: '' });
   };
 
   return (
@@ -132,7 +148,11 @@ const Dashboard: FC = () => {
                   <div>Sex</div>
                   <div>Sáb</div>
                   {[...Array(30)].map((_, i) => (
-                    <div key={i} className="py-2 px-4 bg-gray-700 rounded-md">
+                    <div
+                      key={i}
+                      onClick={() => handleDateClick(i + 1)}
+                      className={`py-2 px-4 rounded-md cursor-pointer ${selectedDate === i + 1 ? 'bg-blue-600' : 'bg-gray-700'} hover:bg-blue-500`}
+                    >
                       {i + 1}
                     </div>
                   ))}
@@ -140,13 +160,12 @@ const Dashboard: FC = () => {
               </div>
               <form onSubmit={handleAppointmentSubmit} className="space-y-4">
                 <div>
-                  <label className="block text-sm font-medium text-gray-300">Localização</label>
+                  <label className="block text-sm font-medium text-gray-300">Data Escolhida</label>
                   <input
                     type="text"
-                    value={appointmentDetails.location}
-                    onChange={(e) => setAppointmentDetails({ ...appointmentDetails, location: e.target.value })}
+                    value={appointmentDetails.date}
+                    readOnly
                     className="mt-1 block w-full rounded-md border-gray-600 bg-gray-900 text-white shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
-                    placeholder="Insira a localização do serviço"
                   />
                 </div>
                 <div>
@@ -167,7 +186,7 @@ const Dashboard: FC = () => {
 
           {/* Seção da Lista de Pedidos (Adaptada para Global Solutions) */}
           <div className="bg-gray-800 p-4 rounded-xl shadow-lg mt-4">
-            <h2 className="text-lg font-bold mb-4 text-white">Veiculos</h2>
+            <h2 className="text-lg font-bold mb-4 text-white">Veículos</h2>
             <table className="min-w-full bg-gray-900 text-sm text-white rounded-lg overflow-hidden">
               <thead>
                 <tr>
@@ -222,7 +241,7 @@ const Dashboard: FC = () => {
                 className="w-full h-full border rounded-lg"
               ></iframe>
             </div>
-            <form className="space-y-2">
+            <form onSubmit={handleSolicitationSubmit} className="space-y-2">
               <div>
                 <label className="block text-sm font-medium text-gray-300">Localização</label>
                 <input
