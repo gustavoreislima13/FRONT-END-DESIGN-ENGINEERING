@@ -2,7 +2,6 @@ import "./globals.css";
 import type { Metadata } from "next";
 import Cabecalho from "./components/Cabecalho/Cabecalho";
 import Rodape from "./components/Rodape/rodape";
-import Cadastro from "./cadastro/cad-cadastro/page";
 
 export const metadata: Metadata = {
   title: "Porto",
@@ -20,7 +19,6 @@ export default function RootLayout({
       >
         <Cabecalho/>
         {children}
-        <Cadastro/>
         <Rodape/>
       </body>
     </html>

@@ -6,7 +6,7 @@ import imagem4 from '@/image/4.png';
 import imagem5 from '@/image/5.png';
 import imagem6 from '@/image/6.png';
 
-export default function Services() {
+export default function Servico() {
     return (
       <section className="flex flex-col items-center justify-center min-h-screen p-8 bg-black">
         <div className="w-full max-w-6xl">

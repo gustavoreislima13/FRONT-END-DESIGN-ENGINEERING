@@ -40,7 +40,7 @@ export default function Cadastro() {
                 "email": "",
                 "senha": "",
                 });
-                navigate.push('/global-solution');
+                navigate.push('/dashboard');
             }
         } catch (error) {
             console.error("Falha ao realizar cadastro: ", error);

@@ -26,7 +26,8 @@ export default async function TelaInicial() {
             <nav>
               <ul>
                 <li>
-                  <Link href={"/challange"}>Cadastre-se</Link>
+                  <Link href={"/cad-cadastro"}>Cadastre-se</Link>
+                  <Link href={"/"}>Faça Login</Link>
                 </li>
               </ul>
 
@@ -104,14 +105,6 @@ export default async function TelaInicial() {
               <span className="text-blue-600 mr-2">✓</span> Coberturas flexíveis e customizáveis
             </li>
           </ul>
-          <div className="mt-6">
-            <button className="mr-4 px-6 py-3 bg-blue-600 text-white font-semibold rounded-md shadow-md hover:bg-blue-500 transition duration-200">
-              Fale conosco
-            </button>
-            <button className="px-6 py-3 bg-transparent text-blue-600 font-semibold rounded-md border border-blue-600 hover:bg-blue-100 transition duration-200">
-              Veja mais
-            </button>
-          </div>
         </div>
       </div>
       <div className="flex flex-col items-center max-w-6xl w-full mt-16 p-6">
