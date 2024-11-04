@@ -23,3 +23,11 @@ export type TipoAgendamento = {
     "veiculos_placa":string;
 }
 
+export type TipoChamado = {
+    "id_chamado": number;
+    "descricao": string;
+    "tipo_servico": string;
+    "data_chamado": string;
+    "clientes_cpf": string;
+}
+
