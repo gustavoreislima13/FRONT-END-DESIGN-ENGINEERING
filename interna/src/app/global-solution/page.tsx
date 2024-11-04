@@ -174,7 +174,7 @@ const Dashboard: FC = () => {
                   <th className="py-2 px-4">ID</th>
                   <th className="py-2 px-4">Nome</th>
                   <th className="py-2 px-4">Modelo</th>
-                  <th className="py-2 px-4">Placa</th>
+                  <th className="py-2 px-4">Final da placa</th>
                   <th className="py-2 px-4">DATA</th>
                   <th className="py-2 px-4">Cor</th>
                   <th className="py-2 px-4">EDITAR | EXCLUIR</th>
