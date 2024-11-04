@@ -15,15 +15,15 @@ export default function Cadastro() {
         "senha": "",
     });
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const { name, value } = e.target;
+    const handleChange = (evento: React.ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = evento.target;
         setCadastro({ ...cadastro, [name]: value });
     };
 
-    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
+    const handleSubmit = async (evento: React.FormEvent<HTMLFormElement>) => {
+        evento.preventDefault();
         try {
-            const response = await fetch('http://localhost:8080/guardianshields/clientes', {
+            const response = await fetch("http://localhost:8080/guardianshields/clientes", {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -53,59 +53,64 @@ export default function Cadastro() {
             <div className="bg-gray-800 p-6 rounded-lg shadow-lg w-full max-w-md md:max-w-lg">
                 <form onSubmit={handleSubmit} className="space-y-4">
                     <div>
-                        <label className="block text-sm font-medium mb-1">cpf:</label>
+                        <label htmlFor="idCpf" className="block text-sm font-medium mb-1">cpf:</label>
                         <input
                             type="text"
                             name="cpf"
+                            id="idCpf"
                             value={cadastro.cpf}
-                            onChange={handleChange}
+                            onChange={(evento) =>handleChange(evento)}
                             placeholder="Digite o seu cpf em formato xxxxxxxxxxx"
                             required
                             className="w-full px-4 py-2 rounded-md bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500"
                         />
                     </div>
                     <div>
-                        <label className="block text-sm font-medium mb-1">nome:</label>
+                        <label htmlFor="idNome" className="block text-sm font-medium mb-1">nome:</label>
                         <input
                             type="text"
                             name="nome"
+                            id="idNome"
                             value={cadastro.nome}
-                            onChange={handleChange}
+                            onChange={(evento) =>handleChange(evento)}
                             placeholder="Digite o nome completo"
                             required
                             className="w-full px-4 py-2 rounded-md bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500"
                         />
                     </div>
                     <div>
-                        <label className="block text-sm font-medium mb-1">telefone:</label>
+                        <label htmlFor="idTel" className="block text-sm font-medium mb-1">telefone:</label>
                         <input
                             type="number"
                             name="telefone"
+                            id="idTel"
                             value={cadastro.telefone}
-                            onChange={handleChange}
+                            onChange={(evento) =>handleChange(evento)}
                             placeholder="Digite o seu telefone"
                             className="w-full px-4 py-2 rounded-md bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500"
                         />
                     </div>
                     <div>
-                        <label className="block text-sm font-medium mb-1">email:</label>
+                        <label htmlFor="idEmail" className="block text-sm font-medium mb-1">email:</label>
                         <input
                             type="text"
                             name="email"
+                            id="idEmail"
                             value={cadastro.email}
-                            onChange={handleChange}
+                            onChange={(evento) =>handleChange(evento)}
                             placeholder="Digite o seu email no formato xxxx@xxx.xxx"
                             required
                             className="w-full px-4 py-2 rounded-md bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-pink-500"
                         />
                     </div>
                     <div>
-                        <label className="block text-sm font-medium mb-1">senha:</label>
+                        <label htmlFor="idSenha" className="block text-sm font-medium mb-1">senha:</label>
                         <input
                             type="text"
                             name="senha"
+                            id="idSenha"
                             value={cadastro.senha}
-                            onChange={handleChange}
+                            onChange={(evento) =>handleChange(evento)}
                             placeholder="Digite a senha com até 6 digitos"
                             className="w-full px-4 py-2 rounded-md bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500"
                         />
