@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { promises as fs } from "fs";
-import { GlobalSolution } from "@/types/global";
+import { agendamentosolution } from "@/types/global";
 
 //READ
 export async function GET(request:Request, {params}:{params:{id:number}}) {
@@ -8,9 +8,9 @@ export async function GET(request:Request, {params}:{params:{id:number}}) {
     try {
         const file = await fs.readFile( process.cwd() + '/src/data/banco-gs.json', 'utf-8');
         
-        const globals:GlobalSolution[] = JSON.parse(file);
+        const agendamentos:agendamentosolution[] = JSON.parse(file);
 
-        const global = globals.find( p => p.id ==  params.id);
+        const global = agendamentos.find( p => p.id ==  params.id);
 
         return NextResponse.json(global);
 
@@ -26,14 +26,14 @@ export async function DELETE(request:Request, {params}:{params:{id:number}}) {
     try {
         const file = await fs.readFile( process.cwd() + '/src/data/banco-gs.json', 'utf-8');
         
-        const globals:GlobalSolution[] = JSON.parse(file);
+        const agendamentos:agendamentosolution[] = JSON.parse(file);
 
-        const indice = globals.findIndex( p => p.id ==  params.id);
+        const indice = agendamentos.findIndex( p => p.id ==  params.id);
 
         if(indice != -1){
-            globals.splice(indice,1);
+            agendamentos.splice(indice,1);
             
-            const listaJson = JSON.stringify(globals);
+            const listaJson = JSON.stringify(agendamentos);
 
             await fs.writeFile(process.cwd() + '/src/data/banco-gs.json', listaJson);
 
@@ -54,20 +54,20 @@ export async function PUT(request: Request,{params}:{params:{id:number}}) {
 
         const file = await fs.readFile(process.cwd() + '/src/data/banco-gs.json', 'utf-8');
 
-        const globals: GlobalSolution[] = JSON.parse(file);
+        const agendamentos: agendamentosolution[] = JSON.parse(file);
 
         const {aluno,materia,nota,data,feedback} = await request.json();
 
-        const indice = globals.findIndex( p => p.id ==  params.id);
+        const indice = agendamentos.findIndex( p => p.id ==  params.id);
 
         if(indice != -1){
-            const global = {aluno,materia,nota,data,feedback} as GlobalSolution;
+            const global = {aluno,materia,nota,data,feedback} as agendamentosolution;
 
             global.id = params.id;
 
-            globals.splice(indice,1,global);
+            agendamentos.splice(indice,1,global);
                         
-            const listaJson = JSON.stringify(globals);
+            const listaJson = JSON.stringify(agendamentos);
 
             await fs.writeFile(process.cwd() + '/src/data/banco-gs.json', listaJson);
 

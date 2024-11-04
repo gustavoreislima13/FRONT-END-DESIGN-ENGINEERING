@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { promises as fs } from "fs";
-import { Checkpoint } from "@/types/checkpoint";
+import { TipoVeiculo } from "@/types/cadastro";
 
 
 //READ ALL
@@ -9,12 +9,12 @@ export async function GET() {
     try {
         const file = await fs.readFile(process.cwd() + '/src/data/banco-cp.json', 'utf-8');
 
-        const checkpoints:Checkpoint[] = JSON.parse(file);
+        const veiculos:TipoVeiculo[] = JSON.parse(file);
 
-        return NextResponse.json(checkpoints);
+        return NextResponse.json(veiculos);
 
     } catch (error) {
-        return NextResponse.json({ error: "Falha na obtenção da lista de checkpoints : " + error }, { status: 500 });
+        return NextResponse.json({ error: "Falha na obtenção da lista de veiculos : " + error }, { status: 500 });
     }
 
 }
@@ -26,25 +26,21 @@ export async function POST(request: Request) {
 
         const file = await fs.readFile(process.cwd() + '/src/data/banco-cp.json', 'utf-8');
 
-        const checkpoints: Checkpoint[] = JSON.parse(file);
+        const veiculos: TipoVeiculo[] = JSON.parse(file);
 
-        const {aluno, materia, nota, data, feedback} = await request.json();
-        const checkpoint = {aluno, materia, nota, data, feedback} as Checkpoint;
+        const {placa, modelo, cor, marca, clientes_cpf} = await request.json();
+        const veiculo = {placa, modelo, cor, marca, clientes_cpf} as TipoVeiculo;
 
-        const novoId = ( parseInt(checkpoints[checkpoints.length - 1].id.toString() ) + 1);
+        veiculos.push(veiculo);
 
-        checkpoint.id = novoId;
-
-        checkpoints.push(checkpoint);
-
-        const listaJson = JSON.stringify(checkpoints);
+        const listaJson = JSON.stringify(veiculos);
 
         await fs.writeFile(process.cwd() + '/src/data/banco-cp.json', listaJson);
 
-        return NextResponse.json(checkpoint, { status: 201 });
+        return NextResponse.json(veiculo, { status: 201 });
 
     } catch (error) {
-        return  NextResponse.json({ error: "Falha na inserção do checkpoint : " + error }, { status: 500 });
+        return  NextResponse.json({ error: "Falha na inserção do veiculo : " + error }, { status: 500 });
     }
 
 }

@@ -1,47 +1,47 @@
 import { NextResponse } from "next/server";
 import { promises as fs } from "fs";
-import { Checkpoint } from "@/types/checkpoint";
+import { TipoVeiculo } from "@/types/cadastro";
 
 //READ
-export async function GET(request:Request, {params}:{params:{id:number}}) {
+export async function GET(request:Request, {params}:{params:{placa:string}}) {
 
     try {
         const file = await fs.readFile( process.cwd() + '/src/data/banco-cp.json', 'utf-8');
         
-        const checkpoints:Checkpoint[] = JSON.parse(file);
+        const veiculos:TipoVeiculo[] = JSON.parse(file);
 
-        const checkpoint = checkpoints.find( p => p.id ==  params.id);
+        const veiculo = veiculos.find( p => p.placa ==  params.placa);
 
-        return NextResponse.json(checkpoint);
+        return NextResponse.json(veiculo);
 
     } catch (error) {
-        return  NextResponse.json({msg:"Falha na obtenção do checkpoint : "+error},{status:500});
+        return  NextResponse.json({msg:"Falha na obtenção do veiculo : "+error},{status:500});
     }
 
 }
 
 //DELETE
-export async function DELETE(request:Request, {params}:{params:{id:number}}) {
+export async function DELETE(request:Request, {params}:{params:{placa:string}}) {
 
     try {
         const file = await fs.readFile( process.cwd() + '/src/data/banco-cp.json', 'utf-8');
         
-        const checkpoints:Checkpoint[] = JSON.parse(file);
+        const veiculos:TipoVeiculo[] = JSON.parse(file);
 
-        const indice = checkpoints.findIndex( p => p.id ==  params.id);
+        const indice = veiculos.findIndex( p => p.placa ==  params.placa);
 
         if(indice != -1){
-            checkpoints.splice(indice,1);
+            veiculos.splice(indice,1);
             
-            const listaJson = JSON.stringify(checkpoints);
+            const listaJson = JSON.stringify(veiculos);
 
             await fs.writeFile(process.cwd() + '/src/data/banco-cp.json', listaJson);
 
-            return NextResponse.json({msg:"Checkpoint excluído com sucesso!"});
+            return NextResponse.json({msg:"veiculo excluído com sucesso!"});
         }
 
     } catch (error) {
-        return NextResponse.json({msg:"Falha na exclusão do Checkpoint : "+error},{status:500})
+        return NextResponse.json({msg:"Falha na exclusão do veiculo : "+error},{status:500})
     }
 
 }
@@ -54,28 +54,28 @@ export async function PUT(request: Request,{params}:{params:{id:number}}) {
 
         const file = await fs.readFile(process.cwd() + '/src/data/banco-cp.json', 'utf-8');
 
-        const checkpoints: Checkpoint[] = JSON.parse(file);
+        const veiculos: veiculo[] = JSON.parse(file);
 
         const {aluno,materia,nota,data,feedback} = await request.json();
 
-        const indice = checkpoints.findIndex( p => p.id ==  params.id);
+        const indice = veiculos.findIndex( p => p.id ==  params.id);
 
         if(indice != -1){
-            const checkpoint = {aluno,materia,nota,data,feedback} as Checkpoint;
+            const veiculo = {aluno,materia,nota,data,feedback} as veiculo;
 
-            checkpoint.id = params.id;
+            veiculo.id = params.id;
 
-            checkpoints.splice(indice,1,checkpoint);
+            veiculos.splice(indice,1,veiculo);
                         
-            const listaJson = JSON.stringify(checkpoints);
+            const listaJson = JSON.stringify(veiculos);
 
             await fs.writeFile(process.cwd() + '/src/data/banco-cp.json', listaJson);
 
-            return NextResponse.json({msg:"Checkpoint atualizado com sucesso!"});
+            return NextResponse.json({msg:"veiculo atualizado com sucesso!"});
         }
 
     } catch (error) {
-        return  NextResponse.json({ error: "Falha na atualização do checkpoint : " + error }, { status: 500 });
+        return  NextResponse.json({ error: "Falha na atualização do veiculo : " + error }, { status: 500 });
     }
 
 }

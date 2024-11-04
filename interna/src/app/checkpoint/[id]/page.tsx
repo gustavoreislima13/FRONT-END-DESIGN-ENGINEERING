@@ -2,122 +2,120 @@
 
 import { useEffect, useState } from "react";
 import { useRouter, useParams } from "next/navigation"; 
-import { Checkpoint } from "@/types/checkpoint"; // Certifique-se de que o caminho esteja correto
+import { TipoVeiculo } from "@/types/cadastro";
 
-export default function EditarCheckpoint() {
+export default function EditarVeiculo() {
     const navigate = useRouter();
     const params = useParams();
-    const id = params.id;
+    const placa = params.placa;
 
-    const [checkpoint, setCheckpoint] = useState<Checkpoint>({
-        id: 0,
-        aluno: "",
-        materia: "",
-        nota: 0.0,
-        data: "",
-        feedback: "",
+    const [veiculo, setVeiculo] = useState<TipoVeiculo>({
+        placa: "",
+        modelo: "",
+        cor: "",
+        marca: "",
+        clientes_cpf: "",
     });
 
     useEffect(() => {
         const chamadaApi = async () => {
-            const response = await fetch(`http://localhost:3000/api/base-checkpoint/${id}`);
-            const data = await response.json();
-            setCheckpoint(data);
+            const response = await fetch(`http://localhost:8080/guardainshields/veiculos/${placa}`);
+            const marca = await response.json();
+            setVeiculo(marca);
         };
-        if (id) {
+        if (placa) {
             chamadaApi();
         }
-    }, [id]);
+    }, [placa]);
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
         try {
-            const response = await fetch(`http://localhost:3000/api/base-checkpoint/${id}`, {
+            const response = await fetch(`http://localhost:8080/guardainshields/veiculos/${placa}`, {
                 method: 'PUT',
                 headers: {
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify(checkpoint)
+                body: JSON.stringify(veiculo)
             });
 
             if (response.ok) {
-                alert("Checkpoint atualizado com sucesso!");
-                setCheckpoint({
-                    id: 0,
-                    aluno: "",
-                    materia: "",
-                    nota: 0.0,
-                    data: "",
-                    feedback: "",
+                alert("Veiculo atualizado com sucesso!");
+                setVeiculo({
+                    placa: "",
+                    modelo: "",
+                    cor: "",
+                    marca: "",
+                    clientes_cpf: "",
                 });
-                navigate.push("/checkpoint");
+                navigate.push("/veiculo");
             }
 
         } catch (error) {
-            console.error("Erro na atualização do checkpoint...", error);
+            console.error("Erro na atualização do veiculo...", error);
         }
     }
 
     return (
         <div className="min-h-screen bg-gray-900 text-white flex flex-col items-center py-10 px-4">
-            <h1 className="text-3xl md:text-4xl font-bold text-pink-400 mb-6">Editar CheckPoints</h1>
+            <h1 className="text-3xl md:text-4xl font-bold text-pink-400 mb-6">Editar veiculo</h1>
             <div className="bg-gray-800 p-6 rounded-lg shadow-lg w-full max-w-lg">
                 <form onSubmit={handleSubmit} className="space-y-4">
                     <div>
-                        <label className="block text-sm font-medium mb-1">NOME DO ALUNO</label>
+                        <label className="block text-sm font-medium mb-1">Placa</label>
                         <input
                             type="text"
-                            name="aluno"
-                            value={checkpoint.aluno}
-                            onChange={(evento) => setCheckpoint({ ...checkpoint, aluno: evento.target.value })}
-                            placeholder="Digite o nome do aluno"
+                            name="placa"
+                            value={veiculo.placa}
+                            onChange={(evento) => setVeiculo({ ...veiculo, placa: evento.target.value })}
+                            placeholder="Digite a placa do veiculo"
                             required
                             className="w-full px-4 py-2 rounded-md bg-gray-700 text-white placeholder-gray-400"
                         />
                     </div>
                     <div>
-                        <label className="block text-sm font-medium mb-1">NOME DA AVALIAÇÃO</label>
+                        <label className="block text-sm font-medium mb-1">modelo</label>
                         <input
                             type="text"
-                            name="materia"
-                            value={checkpoint.materia}
-                            onChange={(evento) => setCheckpoint({ ...checkpoint, materia: evento.target.value })}
+                            name="modelo"
+                            value={veiculo.modelo}
+                            onChange={(evento) => setVeiculo({ ...veiculo, modelo: evento.target.value })}
                             placeholder="Digite a matéria da avaliação"
                             required
                             className="w-full px-4 py-2 rounded-md bg-gray-700 text-white placeholder-gray-400"
                         />
                     </div>
                     <div>
-                        <label className="block text-sm font-medium mb-1">NOTA</label>
+                        <label className="block text-sm font-medium mb-1">cor</label>
                         <input
-                            type="number"
-                            name="nota"
-                            value={checkpoint.nota}
-                            onChange={(evento) => setCheckpoint({ ...checkpoint, nota: parseFloat(evento.target.value) })}
-                            placeholder="Digite a nota da avaliação"
+                            type="text"
+                            name="cor"
+                            value={veiculo.cor}
+                            onChange={(evento) => setVeiculo({ ...veiculo, cor: evento.target.value })}
+                            placeholder="Digite a cor da avaliação"
                             className="w-full px-4 py-2 rounded-md bg-gray-700 text-white placeholder-gray-400"
                         />
                     </div>
                     <div>
-                        <label className="block text-sm font-medium mb-1">DATA</label>
+                        <label className="block text-sm font-medium mb-1">marca</label>
                         <input
-                            type="date"
-                            name="data"
-                            value={checkpoint.data}
-                            onChange={(evento) => setCheckpoint({ ...checkpoint, data: evento.target.value })}
+                            type="text"
+                            name="marca"
+                            value={veiculo.marca}
+                            onChange={(evento) => setVeiculo({ ...veiculo, marca: evento.target.value })}
                             required
                             className="w-full px-4 py-2 rounded-md bg-gray-700 text-white"
                         />
                     </div>
                     <div>
-                        <label className="block text-sm font-medium mb-1">FEEDBACK</label>
+                        <label className="block text-sm font-medium mb-1">Cpf do cliente</label>
                         <input
                             type="text"
-                            name="feedback"
-                            value={checkpoint.feedback}
-                            onChange={(evento) => setCheckpoint({ ...checkpoint, feedback: evento.target.value })}
-                            placeholder="Digite o feedback da avaliação"
+                            name="clientes_cpf"
+                            value={veiculo.clientes_cpf}
+                            onChange={(evento) => setVeiculo({ ...veiculo, clientes_cpf: evento.target.value })}
+                            placeholder="Digite o clientes_cpf da avaliação"
                             className="w-full px-4 py-2 rounded-md bg-gray-700 text-white placeholder-gray-400"
                         />
                     </div>
