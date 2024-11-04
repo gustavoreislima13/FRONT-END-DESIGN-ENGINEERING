@@ -1,11 +1,13 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import logo from '@/image/logo.png';
+
 
 export default function Cabecalho(): JSX.Element {
   return (
     <header className="flex justify-between items-center p-4 bg-black w-full">
       <div className="flex items-center">
-        <Image src="/porto_seguro_logo.png" alt="" width={40} height={40} />
+        <Image src={logo} alt="" width={40} height={40} />
       </div>
       
       <nav className="flex space-x-4">

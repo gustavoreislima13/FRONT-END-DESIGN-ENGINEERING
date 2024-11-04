@@ -1,5 +1,22 @@
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
+import validado from '@/image/validado.png';
+import vantagem from '@/image/ilustracao.png';
+import primeira from '@/image/0.jpg';
+import gustavo from '@/image/gustavo.png';
+import leo from '@/image/leo.png';
+import cristiano from '@/image/cristiano.png';
+import jose from '@/image/jose.png';
+import imagem1 from '@/image/1.png';
+import imagem2 from '@/image/2.png';
+import imagem3 from '@/image/3.png';
+
+
+
+
+
+
+
 
 export default async function Tema1() {
   const response = await fetch(`http://localhost:3000/api`);
@@ -20,7 +37,7 @@ export default async function Tema1() {
         </div>
         <div className="flex-1 p-4">
           <Image
-            src="/atendimento_ia.png"
+            src={primeira}
             alt="Imagem de atendimento IA"
             width={600} 
             height={400}
@@ -31,28 +48,28 @@ export default async function Tema1() {
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mt-12 max-w-6xl w-full">
         <div className="flex flex-col items-center text-center p-4">
           <div className="mb-4">
-            <Image src="/ubi_icon.png" alt="UBI Icon" width={50} height={50} />
+            <Image src={validado} alt="UBI Icon" width={50} height={50} />
           </div>
           <h3 className="text-xl font-semibold text-white">UBI</h3>
           <p className="text-gray-300">Economize em sua apólice de seguro com descontos.</p>
         </div>
         <div className="flex flex-col items-center text-center p-4">
           <div className="mb-4">
-            <Image src="/assistencia24h_icon.png" alt="Assistência 24h Icon" width={50} height={50} />
+            <Image src={validado} alt="Assistência 24h Icon" width={50} height={50} />
           </div>
           <h3 className="text-xl font-semibold text-white">Assistência 24h</h3>
           <p className="text-gray-300">Oferecemos suporte emergencial 24/7 adaptado.</p>
         </div>
         <div className="flex flex-col items-center text-center p-4">
           <div className="mb-4">
-            <Image src="/preventiva_icon.png" alt="Preventiva Icon" width={50} height={50} />
+            <Image src={validado} alt="Preventiva Icon" width={50} height={50} />
           </div>
           <h3 className="text-xl font-semibold text-white">Preventiva</h3>
           <p className="text-gray-300">Mantenha seu carro em perfeitas condições.</p>
         </div>
         <div className="flex flex-col items-center text-center p-4">
           <div className="mb-4">
-            <Image src="/seguros_ia_icon.png" alt="Seguros com IA Icon" width={50} height={50} />
+            <Image src={validado} alt="Seguros com IA Icon" width={50} height={50} />
           </div>
           <h3 className="text-xl font-semibold text-white">Seguros com IA</h3>
           <p className="text-gray-300">Recursos de IA para otimizar a interação.</p>
@@ -61,7 +78,7 @@ export default async function Tema1() {
       <div className="flex flex-col md:flex-row items-center justify-between max-w-6xl w-full mt-16 p-6 bg-gray-800 rounded-lg">
         <div className="flex-1 p-4">
           <Image
-            src="/vantagem_illustration.png"
+            src={vantagem}
             alt="Ilustração de vantagem"
             width={400}
             height={300}
@@ -106,7 +123,7 @@ export default async function Tema1() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="flex flex-col items-start text-left p-4 bg-gray-800 rounded-lg shadow-md">
             <Image
-              src="/plataforma_bem_estar.png"
+              src={gustavo}
               alt="Plataforma de Bem-Estar"
               width={300}
               height={200}
@@ -117,7 +134,7 @@ export default async function Tema1() {
           </div>
           <div className="flex flex-col items-start text-left p-4 bg-gray-800 rounded-lg shadow-md">
             <Image
-              src="/previsao_riscos.png"
+              src={leo}
               alt="Previsão de Riscos"
               width={300}
               height={200}
@@ -146,7 +163,7 @@ export default async function Tema1() {
           <div className="flex flex-col items-start text-left p-4 bg-gray-800 rounded-lg shadow-md">
             <div className="flex items-center mb-4">
               <Image
-                src="/jose_almeida.png"
+                src={jose}
                 alt="Jose Almeida"
                 width={50}
                 height={50}
@@ -161,7 +178,7 @@ export default async function Tema1() {
           <div className="flex flex-col items-start text-left p-4 bg-gray-800 rounded-lg shadow-md">
             <div className="flex items-center mb-4">
               <Image
-                src="/cristiano_robinho.png"
+                src={cristiano}
                 alt="Cristiano Robinho"
                 width={50}
                 height={50}
@@ -181,7 +198,7 @@ export default async function Tema1() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="flex flex-col items-start text-left p-4 bg-gray-800 rounded-lg shadow-md">
             <Image
-              src="/plataforma_bem_estar.png"
+              src={imagem1}
               alt="Plataforma de Bem-Estar"
               width={300}
               height={200}
@@ -192,7 +209,7 @@ export default async function Tema1() {
           </div>
           <div className="flex flex-col items-start text-left p-4 bg-gray-800 rounded-lg shadow-md">
             <Image
-              src="/previsao_riscos.png"
+              src={imagem2}
               alt="Previsão de Riscos"
               width={300}
               height={200}
@@ -203,7 +220,7 @@ export default async function Tema1() {
           </div>
           <div className="flex flex-col items-start text-left p-4 bg-gray-800 rounded-lg shadow-md">
             <Image
-              src="/prevencao_fraudes.png"
+              src={imagem3}
               alt="Prevenção de Fraudes"
               width={300}
               height={200}
