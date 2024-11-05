@@ -8,11 +8,11 @@ export default function EditarChamado({ params }: { params: { id_chamado: number
     
     const navigate = useRouter();
     const [chamado, setChamado] = useState<TipoChamado>({
-        "id_chamado": 0.0,
-        "descricao": "",
-        "tipo_servico": "",
-        "data_chamado": "",
-        "clientes_cpf": "",
+        id_chamado: 0.0,
+        descricao: "",
+        tipo_servico: "",
+        data_chamado: "",
+        clientes_cpf: "",
 });
 
 useEffect(() => {
@@ -41,13 +41,13 @@ const handleSubmit = async (e:React.FormEvent<HTMLFormElement>) =>{
             if(response.ok){
                 alert("chamado atualizado com sucesso!");
                 setChamado({
-                    "id_chamado": 0.0,
-                    "descricao": "",
-                    "tipo_servico": "",
-                    "data_chamado": "",
-                    "clientes_cpf": "",
+                    id_chamado: 0.0,
+                    descricao: "",
+                    tipo_servico: "",
+                    data_chamado: "",
+                    clientes_cpf: "",
                 });
-                navigate.push("/chamados");
+                navigate.push("/dashboard");
             }
 
     } catch (error) {

@@ -8,12 +8,12 @@ export default function CadAgendamento() {
     const navigate = useRouter();
 
     const [agendamento, setAgendamento] = useState<TipoAgendamento>({
-        "id_agendamento": 0.0,
-        "data_agenda": "",
-        "tipo_servico": "",
-        "status": "",
-        "clientes_cpf":"",
-        "veiculos_placa":"",
+        id_agendamento: 0.0,
+        data_agenda: "",
+        tipo_servico: "",
+        status: "",
+        clientes_cpf:"",
+        veiculos_placa:"",
     });
 
     const handleChange = (evento: React.ChangeEvent<HTMLInputElement>) => {
@@ -35,14 +35,14 @@ export default function CadAgendamento() {
             if (response.ok) {
                 alert("Agendamento cadastrado com sucesso.");
                 setAgendamento({
-                "id_agendamento": 0.0,
-                "data_agenda": "",
-                "tipo_servico": "",
-                "status": "",
-                "clientes_cpf":"",
-                "veiculos_placa":"",
+                    id_agendamento: 0.0,
+                    data_agenda: "",
+                    tipo_servico: "",
+                    status: "",
+                    clientes_cpf:"",
+                    veiculos_placa:"",
                 });
-                navigate.push('/global-solution');
+                navigate.push('/dashboard');
             }
         } catch (error) {
             console.error("Falha ao realizar agendamento: ", error);

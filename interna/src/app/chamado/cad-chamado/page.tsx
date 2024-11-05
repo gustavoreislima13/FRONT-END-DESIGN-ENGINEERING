@@ -8,11 +8,11 @@ export default function CadChamado() {
     const navigate = useRouter();
 
     const [chamado, setChamado] = useState<TipoChamado>({
-        "id_chamado": 0.0,
-        "descricao": "",
-        "tipo_servico": "",
-        "data_chamado": "",
-        "clientes_cpf": "",
+        id_chamado: 0.0,
+        descricao: "",
+        tipo_servico: "",
+        data_chamado: "",
+        clientes_cpf: "",
     });
 
     const handleChange = (evento: React.ChangeEvent<HTMLInputElement>) => {
@@ -34,13 +34,13 @@ export default function CadChamado() {
             if (response.ok) {
                 alert("chamado cadastrado com sucesso.");
                 setChamado({
-                    "id_chamado": 0.0,
-                    "descricao": "",
-                    "tipo_servico": "",
-                    "data_chamado": "",
-                    "clientes_cpf": "",
+                    id_chamado: 0.0,
+                    descricao: "",
+                    tipo_servico: "",
+                    data_chamado: "",
+                    clientes_cpf: "",
                 });
-                navigate.push('/global-solution');
+                navigate.push('/dashboard');
             }
         } catch (error) {
             console.error("Falha ao realizar chamado: ", error);

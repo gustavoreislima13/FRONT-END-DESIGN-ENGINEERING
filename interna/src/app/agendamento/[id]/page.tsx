@@ -8,12 +8,12 @@ export default function EditarAgendamento({ params }: { params: { id_agendamento
     
     const navigate = useRouter();
     const [agendamento, setAgendamento] = useState<TipoAgendamento>({
-        "id_agendamento": 0.0,
-        "data_agenda": "",
-        "tipo_servico": "",
-        "status": "",
-        "clientes_cpf":"",
-        "veiculos_placa":"",
+        id_agendamento: 0.0,
+        data_agenda: "",
+        tipo_servico: "",
+        status: "",
+        clientes_cpf:"",
+        veiculos_placa:"",
 });
 
 useEffect(() => {
@@ -42,14 +42,14 @@ const handleSubmit = async (e:React.FormEvent<HTMLFormElement>) =>{
             if(response.ok){
                 alert("agendamento atualizado com sucesso!");
                 setAgendamento({
-                    "id_agendamento": 0.0,
-                    "data_agenda": "",
-                    "tipo_servico": "",
-                    "status": "",
-                    "clientes_cpf":"",
-                    "veiculos_placa":"",
+                    id_agendamento: 0.0,
+                    data_agenda: "",
+                    tipo_servico: "",
+                    status: "",
+                    clientes_cpf:"",
+                    veiculos_placa:"",
                 });
-                navigate.push("/agendamentos");
+                navigate.push("/dasboard");
             }
 
     } catch (error) {

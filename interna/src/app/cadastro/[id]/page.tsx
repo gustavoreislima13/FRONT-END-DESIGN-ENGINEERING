@@ -8,11 +8,11 @@ export default function EditarCadastro({ params }: { params: { cpf: string } }) 
     
     const navigate = useRouter();
     const [cadastro, setCadastro] = useState<TipoCadastro>({
-        "cpf": "",
-        "nome": "",
-        "telefone": 0.0,
-        "email": "",
-        "senha": "",
+        cpf: "",
+        nome: "",
+        telefone: 0.0,
+        email: "",
+        senha: "",
 });
 
 useEffect(() => {
@@ -41,11 +41,11 @@ const handleSubmit = async (e:React.FormEvent<HTMLFormElement>) =>{
             if(response.ok){
                 alert("cadastro atualizado com sucesso!");
                 setCadastro({
-                    "cpf": "",
-                    "nome": "",
-                    "telefone": 0.0,
-                    "email": "",
-                    "senha": "",
+                    cpf: "",
+                    nome: "",
+                    telefone: 0.0,
+                    email: "",
+                    senha: "",
                 });
                 navigate.push("/cadastros");
             }

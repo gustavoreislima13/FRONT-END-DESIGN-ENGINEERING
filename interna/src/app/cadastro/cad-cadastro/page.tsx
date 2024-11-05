@@ -8,11 +8,11 @@ export default function Cadastro() {
     const navigate = useRouter();
 
     const [cadastro, setCadastro] = useState<TipoCadastro>({
-        "cpf": "",
-        "nome": "",
-        "telefone": 0.0,
-        "email": "",
-        "senha": "",
+        cpf: "",
+        nome: "",
+        telefone: 0.0,
+        email: "",
+        senha: "",
     });
 
     const handleChange = (evento: React.ChangeEvent<HTMLInputElement>) => {
@@ -34,11 +34,11 @@ export default function Cadastro() {
             if (response.ok) {
                 alert("Usuario cadastrado com sucesso.");
                 setCadastro({
-                "cpf": "",
-                "nome": "",
-                "telefone": 0.0,
-                "email": "",
-                "senha": "",
+                cpf: "",
+                nome: "",
+                telefone: 0.0,
+                email: "",
+                senha: "",
                 });
                 navigate.push('/dashboard');
             }

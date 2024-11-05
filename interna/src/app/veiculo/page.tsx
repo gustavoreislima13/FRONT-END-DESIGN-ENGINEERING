@@ -59,7 +59,7 @@ return (
                         <td>{r.cor}</td>
                         <td>{r.marca}</td>
                         <td>{r.clientes_cpf}</td>
-                        <td><Link href={`/produtos/${r.placa}`}><Editar className="inline text-3xl"/></Link> | 
+                        <td><Link href={`/veiculo/[id]/${r.placa}`}><Editar className="inline text-3xl"/></Link> | 
                         <Link href="#" onClick={()=> handleDelete(r.placa)}> <Excluir className="inline text-3xl"/></Link> </td>
                     </tr>                    
                 ))}

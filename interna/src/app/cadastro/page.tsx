@@ -57,7 +57,7 @@ return (
                         <td>{r.nome}</td>
                         <td>{r.telefone}</td>
                         <td>{r.email}</td>
-                        <td><Link href={`/produtos/${r.cpf}`}><Editar className="inline text-3xl"/></Link> | 
+                        <td><Link href={`/cadastro/[id]/${r.cpf}`}><Editar className="inline text-3xl"/></Link> | 
                         <Link href="#" onClick={()=> handleDelete(r.cpf)}> <Excluir className="inline text-3xl"/></Link> </td>
                     </tr>                    
                 ))}

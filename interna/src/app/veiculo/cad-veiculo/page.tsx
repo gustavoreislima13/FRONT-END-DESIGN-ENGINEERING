@@ -2,7 +2,7 @@
 
 import { TipoVeiculo } from "@/types/types";
 import { useRouter } from "next/navigation";
-import { useState, useEffect } from "react";
+import { useState} from "react";
 
 export default function CadVeiculo() {
     const navigate = useRouter();
@@ -14,12 +14,6 @@ export default function CadVeiculo() {
         clientes_cpf: "",
     });
 
-    // useEffect para garantir que apenas no lado do cliente a navegação seja manipulada
-    useEffect(() => {
-        if (typeof window === "undefined") {
-            return;
-        }
-    }, []);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
@@ -46,7 +40,7 @@ export default function CadVeiculo() {
                     marca: "",
                     clientes_cpf: "",
                 });
-                navigate.push('/checkpoint');
+                navigate.push('/dashboard');
             }
         } catch (error) {
             console.error("Falha ao cadastrar veículo: ", error);

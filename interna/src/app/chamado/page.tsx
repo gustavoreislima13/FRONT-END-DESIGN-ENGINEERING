@@ -60,7 +60,7 @@ return (
                         <td>{r.tipo_servico}</td>
                         <td>{r.data_chamado}</td>
                         <td>{r.clientes_cpf}</td>
-                        <td><Link href={`/chamados/${r.id_chamado}`}><Editar className="inline text-3xl"/></Link> | 
+                        <td><Link href={`/chamado/[id]/${r.id_chamado}`}><Editar className="inline text-3xl"/></Link> | 
                         <Link href="#" onClick={()=> handleDelete(r.id_chamado)}> <Excluir className="inline text-3xl"/></Link> </td>
                     </tr>                    
                 ))}

@@ -26,7 +26,7 @@ export default async function TelaInicial() {
             <nav>
               <ul>
                 <li>
-                  <Link href={"/cad-cadastro"}>Cadastre-se</Link>
+                  <Link href={"/cadastrcad-cadastro"}>Cadastre-se</Link>
                   <Link href={"/"}>Faça Login</Link>
                 </li>
               </ul>
