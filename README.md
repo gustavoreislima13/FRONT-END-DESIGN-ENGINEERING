@@ -24,6 +24,11 @@ Bem-vindo ao repositório **FRONT-END-DESIGN-ENGINEERING**, criado por [gustavor
 
 3. **Implementação em Projetos:** Incorpore as práticas e componentes sugeridos em seus projetos para melhorar a qualidade e a eficiência do desenvolvimento front-end.
 
+4. **Inicie o Java.
+   ```bash
+   https://github.com/britojulia/Sprint-4-Java
+   ```
+
 ## Contribuições
 
 Contribuições são bem-vindas! Se você deseja adicionar novos recursos, corrigir bugs ou melhorar a documentação, siga estes passos:
