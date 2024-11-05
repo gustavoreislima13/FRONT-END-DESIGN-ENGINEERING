@@ -9,10 +9,11 @@ import jose from '@/image/jose.png';
 import imagem1 from '@/image/1.png';
 import imagem2 from '@/image/2.png';
 import imagem3 from '@/image/3.png';
+import julia from '@/image/julia.jpg';
+
 import Link from 'next/link';
 
 export default async function TelaInicial() {
-
   return (
     <div className="flex flex-col items-center justify-center min-h-screen p-6 bg-black">
       <div className="flex flex-col md:flex-row items-center max-w-6xl w-full">
@@ -23,15 +24,18 @@ export default async function TelaInicial() {
           <p className="text-lg text-gray-300">
             Atendimento inovador com IA. Soluções ágeis e personalizadas aprendendo continuamente para oferecer o melhor serviço!
           </p>
-            <nav>
-              <ul>
-                <li>
-                  <Link href={"/cadastrcad-cadastro"}>Cadastre-se</Link>
-                  <Link href={"/"}>Faça Login</Link>
-                </li>
-              </ul>
-
-            </nav>
+          <nav className="mt-6">
+            <ul>
+              <li>
+                <Link
+                  href={"/cadastro/cad-cadastro"}
+                  className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition duration-300 mt-4"
+                >
+                  Cadastre-se
+                </Link>
+              </li>
+            </ul>
+          </nav>
         </div>
         <div className="flex-1 p-4">
           <Image
@@ -135,7 +139,7 @@ export default async function TelaInicial() {
           </div>
           <div className="flex flex-col items-start text-left p-4 bg-gray-800 rounded-lg shadow-md">
             <Image
-              src="/prevencao_fraudes.png"
+              src={julia}
               alt="Prevenção de Fraudes"
               width={300}
               height={200}
