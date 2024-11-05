@@ -2,7 +2,7 @@
 
 import { TipoVeiculo } from "@/types/types";
 import { useRouter } from "next/navigation";
-import { useState} from "react";
+import { useState } from "react";
 
 export default function CadVeiculo() {
     const navigate = useRouter();
@@ -13,7 +13,6 @@ export default function CadVeiculo() {
         marca: "",
         clientes_cpf: "",
     });
-
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
@@ -49,7 +48,7 @@ export default function CadVeiculo() {
 
     return (
         <div className="min-h-screen bg-gray-900 text-white flex flex-col items-center py-10 px-4">
-            <h1 className="text-3xl font-bold text-pink-400 mb-6">Cadastrar veículos</h1>
+            <h1 className="text-3xl font-bold text-blue-400 mb-6">Cadastrar veículos</h1>
             <div className="bg-gray-800 p-6 rounded-lg shadow-lg w-full max-w-lg">
                 <form onSubmit={handleSubmit} className="space-y-4">
                     <div>
@@ -112,7 +111,7 @@ export default function CadVeiculo() {
                     <div>
                         <button
                             type="submit"
-                            className="w-full bg-pink-500 text-white py-2 rounded-md hover:bg-pink-600 transition font-semibold"
+                            className="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 transition font-semibold"
                         >
                             Cadastrar
                         </button>

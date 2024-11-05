@@ -29,16 +29,16 @@ export default function RootLayout({
                         <h2 className="text-2xl font-bold mb-8">Menu</h2>
                         <ul className="space-y-4">
                             <li>
-                                <a href="/veiculo/cad-veiculo" className="text-pink-400 hover:underline">Veículos</a>
+                                <a href="/veiculo/cad-veiculo" className="text-blue-400 hover:underline">Veículos</a>
                             </li>
                             <li>
-                                <a href="/agendamento/page" className="text-pink-400 hover:underline">Agendamentos</a>
+                                <a href="/agendamento/page" className="text-blue-400 hover:underline">Agendamentos</a>
                             </li>
                             <li>
-                                <a href="/chamado/cad-chamado" className="text-pink-400 hover:underline">Chamados</a>
+                                <a href="/chamado/cad-chamado" className="text-blue-400 hover:underline">Chamados</a>
                             </li>
                             <li>
-                                <a href="/cadastro/cad-cadastro" className="text-pink-400 hover:underline">Cadastro de Clientes</a>
+                                <a href="/cadastro/cad-cadastro" className="text-blue-400 hover:underline">Cadastro de Clientes</a>
                             </li>
                         </ul>
                     </aside>
