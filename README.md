@@ -2,7 +2,7 @@
 
 # FRONT-END-DESIGN-ENGINEERING
 
-Bem-vindo ao repositório **FRONT-END-DESIGN-ENGINEERING**, criado por [gustavoreislima13](https://github.com/gustavoreislima13). Este projeto visa fornecer recursos e diretrizes para auxiliar desenvolvedores front-end na construção de interfaces de usuário eficientes e bem projetadas.
+Bem-vindo ao repositório **FRONT-END-DESIGN-ENGINEERING**, criado por Gustavo, Julia e Leo. Este projeto visa fornecer recursos e diretrizes para auxiliar desenvolvedores front-end na construção de interfaces de usuário eficientes e bem projetadas.
 
 ## Conteúdo do Repositório
 
@@ -11,6 +11,9 @@ Bem-vindo ao repositório **FRONT-END-DESIGN-ENGINEERING**, criado por [gustavor
 - **Componentes Reutilizáveis:** Biblioteca de componentes que podem ser reutilizados em diferentes projetos, promovendo consistência e eficiência.
 - **Ferramentas e Tecnologias:** Sugestões de ferramentas e frameworks que auxiliam no desenvolvimento front-end, como [Bootstrap](https://getbootstrap.com/) e [Foundation](https://get.foundation/).
 - **Exemplos Práticos:** Implementações de casos de uso comuns para ilustrar a aplicação das diretrizes e padrões propostos.
+
+## Video
+https://youtu.be/vBX98Eu5EpU
 
 ## Como Utilizar
 
