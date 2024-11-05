@@ -12,7 +12,7 @@ export default function CadastroCliente() {
     const [cadastros, setCadastros] = useState<TipoCadastro[]>([]);
 
     const chamadaApiJava = async () => {
-        const response = await fetch("http://localhost:8080/guardianshields/cliens");
+        const response = await fetch("http://localhost:8080/guardianshields/clientes");
         const data = await response.json();
         setCadastros(data);
     };
