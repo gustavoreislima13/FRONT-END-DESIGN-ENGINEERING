@@ -9,7 +9,6 @@ Bem-vindo ao repositório **FRONT-END-DESIGN-ENGINEERING**, criado por Gustavo, 
 - **Diretrizes de Design:** Princípios e melhores práticas para criar interfaces de usuário intuitivas e esteticamente agradáveis.
 - **Padrões de Código:** Recomendações para manter um código limpo, modular e sustentável.
 - **Componentes Reutilizáveis:** Biblioteca de componentes que podem ser reutilizados em diferentes projetos, promovendo consistência e eficiência.
-- **Ferramentas e Tecnologias:** Sugestões de ferramentas e frameworks que auxiliam no desenvolvimento front-end, como [Bootstrap](https://getbootstrap.com/) e [Foundation](https://get.foundation/).
 - **Exemplos Práticos:** Implementações de casos de uso comuns para ilustrar a aplicação das diretrizes e padrões propostos.
 
 ## Video
